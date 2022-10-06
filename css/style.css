@@ -34,28 +34,27 @@ h1, h2, h3, h4, h5, h6{font-size: inherit; font-weight: 400;}
 
 
 body{
-    padding: 50px;
+    padding: 5%;
 }
 
 h1{    
     width: 100%;
     font-size: 2.5em;
     text-align: center;
-    border: 5px solid green;
+
+    /* border: 5px solid green; */
 }
 
 .menu__btn{
     width: 30px;
     height: 20px;
     position: fixed;
-    margin-top: 30px;
+    margin-top: 50px;
     display: flex;
     right: 5%;
-    transform: translate(-100%, 0);
-    /* box-sizing: border-box; */
+    cursor: pointer;
 
-
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 
@@ -77,20 +76,39 @@ h1{
 
 
 #menu__toggle{
-    display: none;
+    /* display: none; */
 }
 
 .menu__box{
-    /* display: none; */
+    /* visibility: hidden; */
     font-size: 1.5em;
-    margin-top: 30px;
+    margin-top: 50px;
     position: fixed;
-
     left: 5%;
-    transform: translate(50%, 0);
-    border: 1px solid blue;
+
+    /* transform: translate(50%, 0); */
+    /* border: 1px solid blue; */
 }
 
 .menu__item{
-
+    margin-bottom: 10px;
+    list-style-position: inside;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
 }
+
+.menu__item::before{
+    content: "";
+    background-image: url("/hamburger-menu/images/liz15_green.png");
+    background-repeat: no-repeat;
+    width: 15px;
+    height: 11px;
+    position: absolute;
+    top: 5px;
+    left: 0px;
+}
+.menu__item:hover::before{
+    background-image: none;
+}
+
