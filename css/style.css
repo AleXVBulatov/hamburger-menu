@@ -32,7 +32,7 @@ img{vertical-align: top;}
 h1, h2, h3, h4, h5, h6{font-size: inherit; font-weight: 400;}
 
 
-
+/* ----------- Работа гамбургер меню только при помощи HTML и CSS ----------- */
 body{
     padding: 5%;
 }
@@ -45,20 +45,56 @@ h1{
     /* border: 5px solid green; */
 }
 
-.menu__btn{
-    width: 30px;
-    height: 20px;
-    position: fixed;
+.example_1{
     margin-top: 50px;
-    display: flex;
+    
+    font-size: 1.5em;
+    text-align: left;
+    text-decoration: underline;
+
+    /* border: 5px solid green; */
+}
+
+.menu__btn{
+    position: absolute;
+    margin-top: 50px;
     right: 5%;
+
+    display: flex;
+    align-items: center; /*выравнивание контента вертикально по центру блока*/
+    justify-content: center; /*выравнивание контента горизонтально по центру блока (в данном примере не нужен)*/
+    
+    width: 30px;
+    height: 18px;
     cursor: pointer;
 
     /* border: 1px solid red; */
 }
 
+.menu__btn > span,
+.menu__btn > span::before,
+.menu__btn > span::after{
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+    transition-duration: .5s; /*Замедление*/
+}
+.menu__btn > span::before{
+    content: "";
+    top: -8px;
+    transition-duration: .5s; /*Замедление*/
+}
+.menu__btn > span::after{
+    content: "";
+    top: 8px;
+    transition-duration: .5s; /*Замедление*/
+}
 
-.menu__btn > span{
+
+/* ----------- Еще способ сделать гммбургер и крест --------------------*/
+/* .menu__btn > span{
     display: block;
     width: 100%;
     height: 2px;
@@ -72,32 +108,57 @@ h1{
 .menu__btn > span:nth-child(3){
     top: 100%;
     transform: translate(0, -100%);
+} */
+
+
+/* .menu__btn > span{
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #616161;
+    position: absolute;
+    transform: rotate(45deg);
 }
+.menu__btn > span:nth-child(2){
+
+    transform: rotate(135deg);
+}
+.menu__btn > span:nth-child(3){
+
+    transform: rotate(135deg);
+} */
+/* ----------- Еще способ сделать гммбургер и крест --------------------*/
 
 
 #menu__toggle{
-    /* display: none; */
+    display: none;
 }
 
 .menu__box{
-    /* visibility: hidden; */
-    font-size: 1.5em;
+    position: absolute;
+    visibility: hidden;
     margin-top: 50px;
-    position: fixed;
     left: 5%;
+    text-align: left;
+    font-size: 1.5em;
 
-    /* transform: translate(50%, 0); */
     /* border: 1px solid blue; */
 }
 
 .menu__item{
+    display: block;
     margin-bottom: 10px;
-    list-style-position: inside;
     position: relative;
     padding-left: 25px;
-    cursor: pointer;
-}
 
+    /* border: 1px solid yellow; */
+}
+.menu__item a{
+    color: black;
+}
+.menu__item a:hover{
+    color: rgb(128, 183, 179);
+}
 .menu__item::before{
     content: "";
     background-image: url("/hamburger-menu/images/liz15_green.png");
@@ -112,3 +173,20 @@ h1{
     background-image: none;
 }
 
+
+#menu__toggle:checked ~ .menu__btn > span{
+    transform: rotate(45deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::before{
+    top: 0;
+    transform: rotate(90deg);
+}
+#menu__toggle:checked ~ .menu__btn > span::after{
+    top: 0;
+    transform: rotate(0deg);
+}
+#menu__toggle:checked ~ .menu__box{
+    visibility: visible;
+}
+
+/* ----------- Работа гамбургер меню только при помощи CSS ----------- */
