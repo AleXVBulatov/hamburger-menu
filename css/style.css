@@ -32,7 +32,7 @@ img{vertical-align: top;}
 h1, h2, h3, h4, h5, h6{font-size: inherit; font-weight: 400;}
 
 
-/* ----------- Работа гамбургер меню только при помощи HTML и CSS ----------- */
+
 body{
     padding: 5%;
     background-color: rgb(220, 220, 220)
@@ -57,7 +57,7 @@ h1{
     justify-content: center; /*выравнивание контента горизонтально по центру блока (в данном примере не нужен)*/
     
     width: 30px;
-    height: 18px;
+    height: 20px;
     cursor: pointer;
 
     /* border: 1px solid red; */
@@ -71,26 +71,21 @@ h1{
     width: 100%;
     height: 2px;
     background-color: #616161;
-    transition-duration: .5s; /*Замедление*/
+    transition-duration: .25s; /*Замедление*/
 }
 .menu__btn > span::before{
     content: "";
     top: -8px;
-    transition-duration: .5s; /*Замедление*/
+    transition-duration: .25s; /*Замедление*/
 }
 .menu__btn > span::after{
     content: "";
     top: 8px;
-    transition-duration: .5s; /*Замедление*/
-}
-
-#menu__toggle{
-    display: none;
+    transition-duration: .25s; /*Замедление*/
 }
 
 .menu__box{
     position: absolute;
-    visibility: hidden;
     margin-top: 50px;
     left: 5%;
     text-align: left;
@@ -115,7 +110,7 @@ h1{
 }
 .menu__item::before{
     content: "";
-    background-image: url("/hamburger-menu/images/liz15_green.png");
+    background-image: url("../images/liz15_green.png");
     background-repeat: no-repeat;
     width: 15px;
     height: 11px;
@@ -128,19 +123,24 @@ h1{
 }
 
 
-#menu__toggle:checked ~ .menu__btn > span{
+
+.js_active{
+    visibility: hidden;
+}
+
+
+.js_btn-close > span{
     transform: rotate(45deg);
 }
-#menu__toggle:checked ~ .menu__btn > span::before{
+.js_btn-close > span::before{
     top: 0;
     transform: rotate(90deg);
 }
-#menu__toggle:checked ~ .menu__btn > span::after{
+.js_btn-close > span::after{
     top: 0;
     transform: rotate(0deg);
 }
-#menu__toggle:checked ~ .menu__box{
-    visibility: visible;
-}
 
-/* ----------- Работа гамбургер меню только при помощи CSS ----------- */
+
+
+
